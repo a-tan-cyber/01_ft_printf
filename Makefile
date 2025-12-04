@@ -6,7 +6,7 @@
 #    By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/27 18:01:31 by amtan             #+#    #+#              #
-#    Updated: 2025/11/27 18:28:35 by amtan            ###   ########.fr        #
+#    Updated: 2025/12/04 18:03:38 by amtan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ ARFLAGS				= rcs
 
 RM					= rm -f
 
-HDRS				= libft.h
+HDRS				= ft_printf.h
 
-SRCS				= 
+SRCS				= ft_printf.c print_char.c print_str.c print_unsigned_base.c print_signed_base.c print_pointer.c
 
 OBJS				= $(SRCS:.c=.o)
 
