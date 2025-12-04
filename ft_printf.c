@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:41:17 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/04 17:28:14 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/04 20:20:40 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ static int	print_next(const char **format, va_list *ap, size_t *printed)
 
 	if (**format == '%')
 	{
-		if (!(*format + 1))
-			return (0);
+		if (!*(*format + 1))
+			return (-1);
 		(*format)++;
 		if (**format == '%')
 			ret = print_char('%', printed);
