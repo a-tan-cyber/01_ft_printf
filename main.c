@@ -15,9 +15,12 @@ int	main(void)
 	void *ptr = &c;
 	void *null_ptr = NULL;
 
-	printf("==printf==\nchar -> %c\nstr  -> %s\nempty_str -> %s\nnull_str -> %s\nint_max -> %i\nint_min -> %d\nzero -> %u\nuint_max -> %u\nptr -> %p\nnull_ptr -> %p\npercent sign -> %%\nno percent sign -> %",
-			                	c,		str,			empty_str,			null_str,		int_max,	int_min,	zero,		uint_max,		ptr,			null_ptr);
-	printf("\n");
-	ft_printf("==ft_printf==!\nchar -> %c\nstr  -> %s\nempty_str -> %s\nnull_str -> %s\nint_max -> %i\nint_min -> %d\nzero -> %u\nuint_max -> %u\nptr -> %p\nnull_ptr -> %p\npercent sign -> %%\nno percent sign -> %",
-			                	c,		str,			empty_str,			null_str,		int_max,	int_min,	zero,		uint_max,		ptr,			null_ptr);
+//	int ret1 = printf("char -> %c\nstr  -> %s\nempty_str -> %s\nnull_str -> %s\nint_max -> %i\nint_min -> %d\nzero -> %u\nuint_max -> %u\nptr -> %p\nnull_ptr -> %p\npercent sign -> %%\nno percent sign -> %",
+//			                	c,		str,			empty_str,			null_str,		int_max,	int_min,	zero,		uint_max,		ptr,			null_ptr);
+	int ret1 = printf("no percent sign -> %");
+	printf("\nret -> %d\n", ret1);
+//	int ret2 = ft_printf("char -> %c\nstr  -> %s\nempty_str -> %s\nnull_str -> %s\nint_max -> %i\nint_min -> %d\nzero -> %u\nuint_max -> %u\nptr -> %p\nnull_ptr -> %p\npercent sign -> %%\nno percent sign -> %",
+//			                	c,		str,			empty_str,			null_str,		int_max,	int_min,	zero,		uint_max,		ptr,			null_ptr);
+	int ret2 = ft_printf("no percent sign -> %");
+	printf("\nret -> %d\n", ret2);
 }
