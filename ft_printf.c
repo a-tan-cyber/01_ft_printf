@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:41:17 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/04 20:20:40 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/05 16:01:46 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,12 @@ static int	process_specifier(const char **format, va_list *ap, size_t *printed)
 	else if (specifier == 's')
 		ret = print_str(va_arg(*ap, char *), printed);
 	else if (specifier == 'x' || specifier == 'X' || specifier == 'u')
-		ret = print_unsigned_base((unsigned long)va_arg(*ap, unsigned int),
-				specifier, printed);
-	else if (specifier == 'd' || specifier == 'i')
-		ret = print_signed_base((long)va_arg(*ap, int), specifier, printed);
-	else if (specifier == 'p')
-		ret = print_pointer(va_arg(*ap, void *), specifier,
+		ret = print_unsigned_base(va_arg(*ap, unsigned int), specifier,
 				printed);
+	else if (specifier == 'd' || specifier == 'i')
+		ret = print_signed_base(va_arg(*ap, int), specifier, printed);
+	else if (specifier == 'p')
+		ret = print_pointer(va_arg(*ap, void *), specifier, printed);
 	else
 		ret = print_char(specifier, printed);
 	return (ret);

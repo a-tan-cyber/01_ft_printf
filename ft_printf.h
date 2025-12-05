@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:16:06 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/04 17:26:57 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/05 16:01:08 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_printf(const char *format, ...);
 int	print_char(int c, size_t *printed);
 int	print_str(char *str, size_t *printed);
 int	print_unsigned_base(unsigned long n, char specifier, size_t *printed);
-int	print_signed_base(long n, char specifier, size_t *printed);
+int	print_signed_base(unsigned long n, char specifier, size_t *printed);
 int	print_pointer(void *p, char specifier, size_t *printed);
 
 #endif
