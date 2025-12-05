@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:41:17 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/05 17:00:37 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/05 17:33:10 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 static int	print_next(const char **format, va_list *ap, size_t *printed);
 static int	process_specifier(const char **format, va_list *ap,
 				size_t *printed);
+static int	print_unknown_specifier(char specifier, size_t *printed);
 
 int	ft_printf(const char *format, ...)
 {
@@ -80,6 +81,20 @@ static int	process_specifier(const char **format, va_list *ap, size_t *printed)
 	else if (specifier == 'p')
 		ret = print_pointer(va_arg(*ap, void *), specifier, printed);
 	else
-		ret = print_char(specifier, printed);
+		ret = print_unknown_specifier(specifier, printed);
 	return (ret);
+}
+
+static int	print_unknown_specifier(char specifier, size_t *printed)
+{
+	int	tmp1;
+	int	tmp2;
+
+	tmp1 = print_char('%', printed);
+	if (tmp1 < 0)
+		return (-1);
+	tmp2 = print_char(specifier, printed);
+	if (tmp2 < 0)
+		return (-1);
+	return (tmp1 + tmp2);
 }
