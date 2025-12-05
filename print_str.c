@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 17:47:00 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/04 17:21:08 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/05 17:00:31 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	print_str(char *str, size_t *printed)
 {
+	int	tmp;
 	int	ret;
 
 	if (!str)
@@ -21,10 +22,11 @@ int	print_str(char *str, size_t *printed)
 	ret = 0;
 	while (*str != '\0')
 	{
-		ret = print_char((int)*str, printed);
-		if (ret < 0)
+		tmp = print_char((int)*str, printed);
+		if (tmp < 0)
 			return (-1);
 		str++;
+		ret += tmp;
 	}
 	return (ret);
 }

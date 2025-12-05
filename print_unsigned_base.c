@@ -6,14 +6,14 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 15:10:13 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/04 17:29:16 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/05 17:00:29 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_digit_recur(unsigned long n, int base, char *symbols,
-		size_t *printed);
+static int	print_digit_recur(unsigned long n, int base, char *symbols,
+				size_t *printed);
 
 int	print_unsigned_base(unsigned long n, char specifier, size_t *printed)
 {
@@ -38,7 +38,8 @@ int	print_unsigned_base(unsigned long n, char specifier, size_t *printed)
 	return (print_digit_recur(n, base, symbols, printed));
 }
 
-int	print_digit_recur(unsigned long n, int base, char *symbols, size_t *printed)
+static int	print_digit_recur(unsigned long n, int base, char *symbols,
+		size_t *printed)
 {
 	int	ret;
 	int	tmp;
