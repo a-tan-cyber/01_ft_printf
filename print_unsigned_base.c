@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 15:10:13 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/05 18:42:39 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/05 19:13:02 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	print_unsigned_base(unsigned long n, char specifier, size_t *printed)
 		base = 10;
 		symbols = "0123456789";
 	}
-	else if (specifier == 'x' || specifier == 'X' || specifier == 'p')
+	else if (specifier == 'x' || specifier == 'X')
 	{
 		base = 16;
 		if (specifier == 'X')

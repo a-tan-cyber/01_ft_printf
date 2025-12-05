@@ -6,12 +6,11 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:41:17 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/05 17:33:10 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/05 19:24:38 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <limits.h>
 
 static int	print_next(const char **format, va_list *ap, size_t *printed);
 static int	process_specifier(const char **format, va_list *ap,
@@ -79,7 +78,7 @@ static int	process_specifier(const char **format, va_list *ap, size_t *printed)
 	else if (specifier == 'd' || specifier == 'i')
 		ret = print_signed_base((long)va_arg(*ap, int), specifier, printed);
 	else if (specifier == 'p')
-		ret = print_pointer(va_arg(*ap, void *), specifier, printed);
+		ret = print_pointer((uintptr_t)va_arg(*ap, void *), printed);
 	else
 		ret = print_unknown_specifier(specifier, printed);
 	return (ret);
