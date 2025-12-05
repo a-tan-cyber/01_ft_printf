@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 15:10:13 by amtan             #+#    #+#             */
-/*   Updated: 2025/12/05 17:00:29 by amtan            ###   ########.fr       */
+/*   Updated: 2025/12/05 18:42:39 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,15 @@ static int	print_digit_recur(unsigned long n, int base, char *symbols,
 	int	ret;
 	int	tmp;
 
-	if (n < (unsigned long)base)
-		return (print_char(symbols[n], printed));
-	else
+	ret = 0;
+	if (n >= (unsigned long)base)
 	{
 		ret = print_digit_recur(n / base, base, symbols, printed);
 		if (ret < 0)
 			return (-1);
-		tmp = print_digit_recur(n % base, base, symbols, printed);
-		if (tmp < 0)
-			return (-1);
-		return (ret + tmp);
 	}
+	tmp = print_char(symbols[n % base], printed);
+	if (tmp < 0)
+		return (-1);
+	return (ret + tmp);
 }
