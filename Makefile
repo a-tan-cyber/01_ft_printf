@@ -6,7 +6,7 @@
 #    By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/27 18:01:31 by amtan             #+#    #+#              #
-#    Updated: 2025/12/05 17:09:17 by amtan            ###   ########.fr        #
+#    Updated: 2025/12/09 10:10:23 by amtan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,37 +22,25 @@ RM					= rm -f
 
 HDRS				= ft_printf.h
 
-SRCS				= ft_printf.c print_char.c print_str.c print_unsigned_base.c print_signed_base.c print_pointer.c
+SRCS				= ft_printf.c print_char.c print_str.c print_pointer.c \
+						print_unsigned_base.c print_signed_base.c
 
 OBJS				= $(SRCS:.c=.o)
-
-BONUS_SRCS			= 
-
-BONUS_OBJS			= $(BONUS_SRCS:.c=.o)
-
-ifeq ($(BONUS), 1)
-ALL_OBJS    		= $(OBJS) $(BONUS_OBJS)
-else
-ALL_OBJS    		= $(OBJS)
-endif
 
 all					: $(NAME)
 
 $(NAME)				: $(ALL_OBJS)
 						$(AR) $(ARFLAGS) $@ $^
 
-bonus				:
-						$(MAKE) BONUS=1 $(NAME)
-
 %.o					: %.c $(HDRS)
 						$(CC) $(CFLAGS) -c $< -o $@
 
 clean				:
-						$(RM) $(OBJS) $(BONUS_OBJS)
+						$(RM) $(OBJS)
 
 fclean				: clean
 						$(RM) $(NAME)
 
 re					: fclean all
 
-.PHONY				: all bonus clean fclean re
+.PHONY				: all clean fclean re
